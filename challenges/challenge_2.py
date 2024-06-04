@@ -2,12 +2,13 @@
 def cuadrados_ordenados_en_rango(arr, S):
     # Definir el límite superior concatenando S dos veces
     limite_superior = int(str(S) * 2)
-    print(limite_superior)
+    print("Limite superior: " + (str(S) * 2))
     
     # Elevar al cuadrado los elementos y filtrar los que están fuera del rango
-    cuadrados_filtrados = [x * x for x in arr if 0 <= x * x <= limite_superior]
+    cuadrados_filtrados = [ x * x for x in arr if 0 <= x * x <= limite_superior]
+    return ordenar_lista(cuadrados_filtrados)
     
-    # Implementar un algoritmo de ordenamiento por inserción para ordenar la lista cuadrados_filtrados
+def ordenar_lista(cuadrados_filtrados):
     for i in range(1, len(cuadrados_filtrados)):
         clave = cuadrados_filtrados[i]
         j = i - 1
@@ -16,7 +17,9 @@ def cuadrados_ordenados_en_rango(arr, S):
             j -= 1
         cuadrados_filtrados[j + 1] = clave
 
-    return cuadrados_filtrados
+    return cuadrados_filtrados    
+   #[5, 1, 4, 2, 3] clave 1, j = 0 [5, 5, 4, 2, 3], j = -1   [1, 5, 4, 2, 3]
+
 
 # Ejemplo de uso
 array = [1, 2, 3, 5, 6, 8, 9]
